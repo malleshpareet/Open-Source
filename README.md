@@ -45,9 +45,7 @@
   <a href="https://docs.postiz.com" rel="dofollow"><strong>Explore the docs »</strong></a>
   <br />
 
-  <br />
-  <a href="https://youtube.com/@postizofficial" rel="dofollow"><strong>Watch the YouTube Tutorials»</strong></a>
-  <br />
+
 </p>
 
 <p align="center">
