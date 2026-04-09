@@ -1,0 +1,77 @@
+﻿
+> gitroom@1.0.0 pm2 /app
+> pnpm run pm2-run
+
+
+> gitroom@1.0.0 pm2-run /app
+> pm2 delete all || true && pnpm run prisma-db-push && pnpm run --parallel pm2 && pm2 logs
+
+
+                        -------------
+
+__/\\\\\\\\\\\\\____/\\\\____________/\\\\____/\\\\\\\\\_____
+ _\/\\\/////////\\\_\/\\\\\\________/\\\\\\__/\\\///////\\\___
+  _\/\\\_______\/\\\_\/\\\//\\\____/\\\//\\\_\///______\//\\\__
+   _\/\\\\\\\\\\\\\/__\/\\\\///\\\/\\\/_\/\\\___________/\\\/___
+    _\/\\\/////////____\/\\\__\///\\\/___\/\\\________/\\\//_____
+     _\/\\\_____________\/\\\____\///_____\/\\\_____/\\\//________
+      _\/\\\_____________\/\\\_____________\/\\\___/\\\/___________
+       _\/\\\_____________\/\\\_____________\/\\\__/\\\\\\\\\\\\\\\_
+        _\///______________\///______________\///__\///////////////__
+
+
+                          Runtime Edition
+
+        PM2 is a Production Process Manager for Node.js applications
+                     with a built-in Load Balancer.
+
+                Start and Daemonize any application:
+                $ pm2 start app.js
+
+                Load Balance 4 instances of api.js:
+                $ pm2 start api.js -i 4
+
+                Monitor in production:
+                $ pm2 monitor
+
+                Make pm2 auto-boot at server restart:
+                $ pm2 startup
+
+                To go further checkout:
+                http://pm2.io/
+
+
+                        -------------
+
+[PM2] Spawning PM2 daemon with pm2_home=/root/.pm2
+[PM2] PM2 Successfully daemonized
+
+> gitroom@1.0.0 prisma-db-push /app
+> pnpm dlx prisma@6.5.0 db push --accept-data-loss --schema ./libraries/nestjs-libraries/src/database/prisma/schema.prisma
+
+Prisma schema loaded from libraries/nestjs-libraries/src/database/prisma/schema.prisma
+Datasource "db": PostgreSQL database "postgres", schema "public" at "db.wwtllkgivcgoitxkyfsn.supabase.co:6543"
+
+ÔÇëELIFECYCLEÔÇë Command failed with exit code 1.
+ÔÇëELIFECYCLEÔÇë Command failed with exit code 1.
+ÔÇëELIFECYCLEÔÇë Command failed with exit code 1.
+
+> gitroom@1.0.0 pm2 /app
+> pnpm run pm2-run
+
+
+> gitroom@1.0.0 pm2-run /app
+> pm2 delete all || true && pnpm run prisma-db-push && pnpm run --parallel pm2 && pm2 logs
+
+[PM2] Spawning PM2 daemon with pm2_home=/root/.pm2
+[PM2] PM2 Successfully daemonized
+
+> gitroom@1.0.0 prisma-db-push /app
+> pnpm dlx prisma@6.5.0 db push --accept-data-loss --schema ./libraries/nestjs-libraries/src/database/prisma/schema.prisma
+
+Prisma schema loaded from libraries/nestjs-libraries/src/database/prisma/schema.prisma
+Datasource "db": PostgreSQL database "postgres", schema "public" at "db.wwtllkgivcgoitxkyfsn.supabase.co:6543"
+
+ÔÇëELIFECYCLEÔÇë Command failed with exit code 1.
+ÔÇëELIFECYCLEÔÇë Command failed with exit code 1.
+ÔÇëELIFECYCLEÔÇë Command failed with exit code 1.

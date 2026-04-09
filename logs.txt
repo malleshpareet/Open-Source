@@ -1,0 +1,934 @@
+﻿
+> gitroom@1.0.0 pm2 /app
+> pnpm run pm2-run
+
+
+> gitroom@1.0.0 pm2-run /app
+> pm2 delete all || true && pnpm run prisma-db-push && pnpm run --parallel pm2 && pm2 logs
+
+
+                        -------------
+
+__/\\\\\\\\\\\\\____/\\\\____________/\\\\____/\\\\\\\\\_____
+ _\/\\\/////////\\\_\/\\\\\\________/\\\\\\__/\\\///////\\\___
+  _\/\\\_______\/\\\_\/\\\//\\\____/\\\//\\\_\///______\//\\\__
+   _\/\\\\\\\\\\\\\/__\/\\\\///\\\/\\\/_\/\\\___________/\\\/___
+    _\/\\\/////////____\/\\\__\///\\\/___\/\\\________/\\\//_____
+     _\/\\\_____________\/\\\____\///_____\/\\\_____/\\\//________
+      _\/\\\_____________\/\\\_____________\/\\\___/\\\/___________
+       _\/\\\_____________\/\\\_____________\/\\\__/\\\\\\\\\\\\\\\_
+        _\///______________\///______________\///__\///////////////__
+
+
+                          Runtime Edition
+
+        PM2 is a Production Process Manager for Node.js applications
+                     with a built-in Load Balancer.
+
+                Start and Daemonize any application:
+                $ pm2 start app.js
+
+                Load Balance 4 instances of api.js:
+                $ pm2 start api.js -i 4
+
+                Monitor in production:
+                $ pm2 monitor
+
+                Make pm2 auto-boot at server restart:
+                $ pm2 startup
+
+                To go further checkout:
+                http://pm2.io/
+
+
+                        -------------
+
+[PM2] Spawning PM2 daemon with pm2_home=/root/.pm2
+[PM2] PM2 Successfully daemonized
+
+> gitroom@1.0.0 prisma-db-push /app
+> pnpm dlx prisma@6.5.0 db push --accept-data-loss --schema ./libraries/nestjs-libraries/src/database/prisma/schema.prisma
+
+Prisma schema loaded from libraries/nestjs-libraries/src/database/prisma/schema.prisma
+Datasource "db": PostgreSQL database "postiz-db-local", schema "public" at "postiz-postgres:5432"
+
+­ƒÜÇ  Your database is now in sync with your Prisma schema. Done in 2.29s
+
+Running generate... (Use --skip-generate to skip the generators)
+[2K[1A[2K[GRunning generate... - Prisma Client
+[2K[1A[2K[GÔ£ö Generated Prisma Client (v6.5.0) to ./node_modules/@prisma/client in 5.61s
+
+Scope: 7 of 8 workspace projects
+apps/backend pm2$ pm2 start pnpm --name backend -- start
+apps/frontend pm2$ pm2 start pnpm --name frontend -- start
+apps/orchestrator pm2$ pm2 start pnpm --name orchestrator -- start
+apps/frontend pm2: [PM2] Starting /usr/local/bin/pnpm in fork_mode (1 instance)
+apps/backend pm2: [PM2] Starting /usr/local/bin/pnpm in fork_mode (1 instance)
+apps/orchestrator pm2: [PM2] Starting /usr/local/bin/pnpm in fork_mode (1 instance)
+apps/backend pm2: [PM2] Done.
+apps/frontend pm2: [PM2] Done.
+apps/orchestrator pm2: [PM2] Done.
+apps/frontend pm2: ÔöîÔöÇÔöÇÔöÇÔöÇÔö¼ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö¼ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö¼ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö¼ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö¼ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö¼ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö¼ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö¼ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö¼ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö¼ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö¼ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö¼ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÉ
+apps/frontend pm2: Ôöé id Ôöé name            Ôöé namespace   Ôöé version Ôöé mode    Ôöé pid      Ôöé uptime Ôöé Ôå║    Ôöé status    Ôöé cpu      Ôöé mem      Ôöé user     Ôöé watching Ôöé
+apps/frontend pm2: Ôö£ÔöÇÔöÇÔöÇÔöÇÔö╝ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö╝ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö╝ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö╝ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö╝ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö╝ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö╝ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö╝ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö╝ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö╝ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö╝ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö╝ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöñ
+apps/frontend pm2: Ôöé 0  Ôöé backend         Ôöé default     Ôöé N/A     Ôöé fork    Ôöé 208      Ôöé 0s     Ôöé 0    Ôöé online    Ôöé 0%       Ôöé 48.1mb   Ôöé root     Ôöé disabled Ôöé
+apps/frontend pm2: Ôöé 1  Ôöé frontend        Ôöé default     Ôöé N/A     Ôöé fork    Ôöé 214      Ôöé 0s     Ôöé 0    Ôöé online    Ôöé 0%       Ôöé 48.3mb   Ôöé root     Ôöé disabled Ôöé
+apps/frontend pm2: Ôöé 2  Ôöé orchestrator    Ôöé default     Ôöé N/A     Ôöé fork    Ôöé 215      Ôöé 0s     Ôöé 0    Ôöé online    Ôöé 0%       Ôöé 48.3mb   Ôöé root     Ôöé disabled Ôöé
+apps/frontend pm2: ÔööÔöÇÔöÇÔöÇÔöÇÔö┤ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö┤ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö┤ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö┤ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö┤ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö┤ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö┤ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö┤ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö┤ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö┤ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö┤ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö┤ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÿ
+apps/backend pm2: ÔöîÔöÇÔöÇÔöÇÔöÇÔö¼ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö¼ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö¼ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö¼ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö¼ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö¼ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö¼ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö¼ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö¼ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö¼ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö¼ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö¼ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÉ
+apps/backend pm2: Ôöé id Ôöé name            Ôöé namespace   Ôöé version Ôöé mode    Ôöé pid      Ôöé uptime Ôöé Ôå║    Ôöé status    Ôöé cpu      Ôöé mem      Ôöé user     Ôöé watching Ôöé
+apps/backend pm2: Ôö£ÔöÇÔöÇÔöÇÔöÇÔö╝ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö╝ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö╝ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö╝ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö╝ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö╝ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö╝ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö╝ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö╝ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö╝ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö╝ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö╝ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöñ
+apps/backend pm2: Ôöé 0  Ôöé backend         Ôöé default     Ôöé N/A     Ôöé fork    Ôöé 208      Ôöé 0s     Ôöé 0    Ôöé online    Ôöé 0%       Ôöé 48.1mb   Ôöé root     Ôöé disabled Ôöé
+apps/backend pm2: Ôöé 1  Ôöé frontend        Ôöé default     Ôöé N/A     Ôöé fork    Ôöé 214      Ôöé 0s     Ôöé 0    Ôöé online    Ôöé 0%       Ôöé 48.3mb   Ôöé root     Ôöé disabled Ôöé
+apps/backend pm2: Ôöé 2  Ôöé orchestrator    Ôöé default     Ôöé N/A     Ôöé fork    Ôöé 215      Ôöé 0s     Ôöé 0    Ôöé online    Ôöé 0%       Ôöé 48.3mb   Ôöé root     Ôöé disabled Ôöé
+apps/backend pm2: ÔööÔöÇÔöÇÔöÇÔöÇÔö┤ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö┤ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö┤ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö┤ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö┤ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö┤ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö┤ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö┤ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö┤ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö┤ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö┤ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö┤ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÿ
+apps/orchestrator pm2: ÔöîÔöÇÔöÇÔöÇÔöÇÔö¼ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö¼ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö¼ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö¼ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö¼ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö¼ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö¼ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö¼ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö¼ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö¼ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö¼ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö¼ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÉ
+apps/orchestrator pm2: Ôöé id Ôöé name            Ôöé namespace   Ôöé version Ôöé mode    Ôöé pid      Ôöé uptime Ôöé Ôå║    Ôöé status    Ôöé cpu      Ôöé mem      Ôöé user     Ôöé watching Ôöé
+apps/orchestrator pm2: Ôö£ÔöÇÔöÇÔöÇÔöÇÔö╝ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö╝ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö╝ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö╝ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö╝ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö╝ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö╝ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö╝ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö╝ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö╝ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö╝ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö╝ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöñ
+apps/orchestrator pm2: Ôöé 0  Ôöé backend         Ôöé default     Ôöé N/A     Ôöé fork    Ôöé 208      Ôöé 0s     Ôöé 0    Ôöé online    Ôöé 0%       Ôöé 48.4mb   Ôöé root     Ôöé disabled Ôöé
+apps/orchestrator pm2: Ôöé 1  Ôöé frontend        Ôöé default     Ôöé N/A     Ôöé fork    Ôöé 214      Ôöé 0s     Ôöé 0    Ôöé online    Ôöé 0%       Ôöé 48.5mb   Ôöé root     Ôöé disabled Ôöé
+apps/orchestrator pm2: Ôöé 2  Ôöé orchestrator    Ôöé default     Ôöé N/A     Ôöé fork    Ôöé 215      Ôöé 0s     Ôöé 0    Ôöé online    Ôöé 0%       Ôöé 48.5mb   Ôöé root     Ôöé disabled Ôöé
+apps/orchestrator pm2: ÔööÔöÇÔöÇÔöÇÔöÇÔö┤ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö┤ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö┤ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö┤ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö┤ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö┤ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö┤ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö┤ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö┤ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö┤ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö┤ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔö┤ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÿ
+apps/frontend pm2: Done
+apps/orchestrator pm2: Done
+apps/backend pm2: Done
+[TAILING] Tailing last 15 lines for [all] processes (change the value with --lines option)
+/root/.pm2/pm2.log last 15 lines:
+PM2        | 2026-04-05T14:26:01: PM2 log: RPC socket file      : /root/.pm2/rpc.sock
+PM2        | 2026-04-05T14:26:01: PM2 log: BUS socket file      : /root/.pm2/pub.sock
+PM2        | 2026-04-05T14:26:01: PM2 log: Application log path : /root/.pm2/logs
+PM2        | 2026-04-05T14:26:01: PM2 log: Worker Interval      : 30000
+PM2        | 2026-04-05T14:26:01: PM2 log: Process dump file    : /root/.pm2/dump.pm2
+PM2        | 2026-04-05T14:26:01: PM2 log: Concurrent actions   : 2
+PM2        | 2026-04-05T14:26:01: PM2 log: SIGTERM timeout      : 1600
+PM2        | 2026-04-05T14:26:01: PM2 log: Runtime Binary       : /usr/local/bin/node
+PM2        | 2026-04-05T14:26:01: PM2 log: ===============================================================================
+PM2        | 2026-04-05T14:26:23: PM2 log: App [backend:0] starting in -fork mode-
+PM2        | 2026-04-05T14:26:23: PM2 log: App [frontend:1] starting in -fork mode-
+PM2        | 2026-04-05T14:26:23: PM2 log: App [orchestrator:2] starting in -fork mode-
+PM2        | 2026-04-05T14:26:23: PM2 log: App [backend:0] online
+PM2        | 2026-04-05T14:26:23: PM2 log: App [frontend:1] online
+PM2        | 2026-04-05T14:26:23: PM2 log: App [orchestrator:2] online
+
+/root/.pm2/logs/backend-out.log last 15 lines:
+/root/.pm2/logs/backend-error.log last 15 lines:
+/root/.pm2/logs/frontend-out.log last 15 lines:
+/root/.pm2/logs/frontend-error.log last 15 lines:
+/root/.pm2/logs/orchestrator-out.log last 15 lines:
+/root/.pm2/logs/orchestrator-error.log last 15 lines:
+2|orchestrator  | > postiz-orchestrator@1.0.0 start /app/apps/orchestrator
+2|orchestrator  | > dotenv -e ../../.env -- node --experimental-require-module ./dist/apps/orchestrator/src/main.js
+1|frontend      | > postiz-frontend@1.0.0 start /app/apps/frontend
+1|frontend      | > dotenv -e ../../.env -- next start -p 4200
+0|backend       | > postiz-backend@1.0.0 start /app/apps/backend
+0|backend       | > dotenv -e ../../.env -- node --experimental-require-module ./dist/apps/backend/src/main.js
+1|frontend      | Ôû▓ Next.js 16.2.1
+1|frontend      | - Local:         http://localhost:4200
+1|frontend      | - Network:       http://172.18.0.5:4200
+1|frontend      | Ô£ô Ready in 1029ms
+2|orchestrator  | [32m[Nest] 289  - [39m04/05/2026, 2:26:47 PM [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+2|orchestrator  | [32m[Nest] 289  - [39m04/05/2026, 2:26:47 PM [32m    LOG[39m [38;5;3m[TemporalConnectionFactory] [39m[32mCreating new client connection to temporal:7233 (attempt 1)[39m
+2|orchestrator  | [32m[Nest] 289  - [39m04/05/2026, 2:26:47 PM [32m    LOG[39m [38;5;3m[TemporalConnectionFactory] [39m[32mTemporalConnectionFactory[39m
+2|orchestrator  | [32m[Nest] 289  - [39m04/05/2026, 2:26:47 PM [32m    LOG[39m [38;5;3m[TemporalConnectionFactory] [39m[32mSuccessfully connected to temporal:7233[39m
+2|orchestrator  | [32m[Nest] 289  - [39m04/05/2026, 2:26:47 PM [32m    LOG[39m [38;5;3m[TemporalConnectionFactory] [39m[32mTemporalConnectionFactory[39m
+2|orchestrator  | [32m[Nest] 289  - [39m04/05/2026, 2:26:47 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mDiscoveryModule dependencies initialized[39m[38;5;3m +22ms[39m
+2|orchestrator  | [32m[Nest] 289  - [39m04/05/2026, 2:26:47 PM [32m    LOG[39m [38;5;3m[TemporalConnectionFactory] [39m[32mWorker connection established to temporal:7233[39m
+2|orchestrator  | [32m[Nest] 289  - [39m04/05/2026, 2:26:47 PM [32m    LOG[39m [38;5;3m[TemporalConnectionFactory] [39m[32mTemporalConnectionFactory[39m
+2|orchestrator  | [32m[Nest] 289  - [39m04/05/2026, 2:26:47 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mTemporalModule dependencies initialized[39m[38;5;3m +1ms[39m
+2|orchestrator  | Email service provider: no provider
+2|orchestrator  | [32m[Nest] 289  - [39m04/05/2026, 2:26:47 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mDatabaseModule dependencies initialized[39m[38;5;3m +3ms[39m
+2|orchestrator  | [32m[Nest] 289  - [39m04/05/2026, 2:26:47 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +0ms[39m
+2|orchestrator  | 2026-04-05T14:26:51.546Z [INFO] asset workflow-bundle-cbb4a0230911e1a59acd.js 2.86 MiB [emitted] [immutable] (name: main)
+2|orchestrator  | runtime modules 1010 bytes 5 modules
+2|orchestrator  | modules by path ../../node_modules/ 964 KiB
+2|orchestrator  |   modules by path ../../node_modules/@temporalio/ 332 KiB 55 modules
+2|orchestrator  |   modules by path ../../node_modules/nexus-rpc/lib/ 25.6 KiB 17 modules
+2|orchestrator  |   + 4 modules
+2|orchestrator  | modules by path ./dist/ 18.9 KiB
+2|orchestrator  |   modules by path ./dist/apps/orchestrator/src/workflows/ 17.7 KiB 9 modules
+2|orchestrator  |   modules by path ./dist/libraries/nestjs-libraries/src/ 803 bytes 2 modules
+2|orchestrator  |   modules by path ./dist/apps/orchestrator/src/signals/*.js 452 bytes 2 modules
+2|orchestrator  | optional modules 30 bytes [optional]
+2|orchestrator  |   __temporal_custom_payload_converter (ignored) 15 bytes [optional] [built] [code generated]
+2|orchestrator  |   __temporal_custom_failure_converter (ignored) 15 bytes [optional] [built] [code generated]
+2|orchestrator  | webpack 5.105.4 compiled successfully in 2185 ms { sdkComponent: 'worker', taskQueue: 'main' }
+2|orchestrator  | 2026-04-05T14:26:51.671Z [INFO] Workflow bundle created { sdkComponent: 'worker', taskQueue: 'main', size: '2.86MB' }
+2|orchestrator  | 2026-04-05T14:26:54.135Z [INFO] asset workflow-bundle-cbb4a0230911e1a59acd.js 2.86 MiB [emitted] [immutable] (name: main)
+2|orchestrator  | runtime modules 1010 bytes 5 modules
+2|orchestrator  | modules by path ../../node_modules/ 964 KiB
+2|orchestrator  |   modules by path ../../node_modules/@temporalio/ 332 KiB 55 modules
+2|orchestrator  |   modules by path ../../node_modules/nexus-rpc/lib/ 25.6 KiB 17 modules
+2|orchestrator  |   + 4 modules
+2|orchestrator  | modules by path ./dist/ 18.9 KiB
+2|orchestrator  |   modules by path ./dist/apps/orchestrator/src/workflows/ 17.7 KiB 9 modules
+2|orchestrator  |   modules by path ./dist/libraries/nestjs-libraries/src/ 803 bytes 2 modules
+2|orchestrator  |   modules by path ./dist/apps/orchestrator/src/signals/*.js 452 bytes 2 modules
+2|orchestrator  | optional modules 30 bytes [optional]
+2|orchestrator  |   __temporal_custom_payload_converter (ignored) 15 bytes [optional] [built] [code generated]
+2|orchestrator  |   __temporal_custom_failure_converter (ignored) 15 bytes [optional] [built] [code generated]
+2|orchestrator  | webpack 5.105.4 compiled successfully in 1231 ms { sdkComponent: 'worker', taskQueue: 'x' }
+2|orchestrator  | 2026-04-05T14:26:54.176Z [INFO] Workflow bundle created { sdkComponent: 'worker', taskQueue: 'x', size: '2.86MB' }
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:54 PM [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:54 PM [32m    LOG[39m [38;5;3m[TemporalConnectionFactory] [39m[32mCreating new client connection to temporal:7233 (attempt 1)[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:54 PM [32m    LOG[39m [38;5;3m[TemporalConnectionFactory] [39m[32mTemporalConnectionFactory[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:54 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mSentryModule dependencies initialized[39m[38;5;3m +159ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:54 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mUploadModule dependencies initialized[39m[38;5;3m +1ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:54 PM [32m    LOG[39m [38;5;3m[TemporalConnectionFactory] [39m[32mSuccessfully connected to temporal:7233[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:54 PM [32m    LOG[39m [38;5;3m[TemporalConnectionFactory] [39m[32mTemporalConnectionFactory[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:54 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mThrottlerModule dependencies initialized[39m[38;5;3m +6ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:54 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mDiscoveryModule dependencies initialized[39m[38;5;3m +4ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:54 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mVideoModule dependencies initialized[39m[38;5;3m +1ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:54 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mThirdPartyModule dependencies initialized[39m[38;5;3m +2ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:54 PM [32m    LOG[39m [38;5;3m[TemporalConnectionFactory] [39m[32mWorker connection established to temporal:7233[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:54 PM [32m    LOG[39m [38;5;3m[TemporalConnectionFactory] [39m[32mTemporalConnectionFactory[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:54 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mTemporalModule dependencies initialized[39m[38;5;3m +2ms[39m
+0|backend       | Email service provider: no provider
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:54 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mTemporalRegisterMissingSearchAttributesModule dependencies initialized[39m[38;5;3m +4ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:54 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mInfiniteWorkflowRegisterModule dependencies initialized[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:54 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mDatabaseModule dependencies initialized[39m[38;5;3m +5ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:54 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAgentModule dependencies initialized[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:54 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mChatModule dependencies initialized[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:54 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +3ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:54 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPublicApiModule dependencies initialized[39m[38;5;3m +14ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:54 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mApiModule dependencies initialized[39m[38;5;3m +0ms[39m
+0|backend       | Mastra telemetry is enabled, but the required instrumentation file was not loaded. If you are using Mastra outside of the mastra server environment, see: https://mastra.ai/en/docs/observability/tracing#tracing-outside-mastra-server-environment If you are using a custom instrumentation file or want to disable this warning, set the globalThis.___MASTRA_TELEMETRY___ variable to true in your instrumentation file.
+0|backend       | Mastra telemetry is deprecated and will be removed on the Nov 4th release. Instead use AI Tracing. More info can be found here: https://github.com/mastra-ai/mastra/issues/8577 and here: https://mastra.ai/en/docs/observability/ai-tracing/overview
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mRootController {/}:[39m[38;5;3m +1206ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/, GET} route[39m[38;5;3m +3ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mStripeController {/stripe}:[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/stripe, POST} route[39m[38;5;3m +1ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/auth}:[39m[38;5;3m +1ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/can-register, GET} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/register, POST} route[39m[38;5;3m +1ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/login, POST} route[39m[38;5;3m +1ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/forgot, POST} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/forgot-return, POST} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/oauth/:provider, GET} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/activate, POST} route[39m[38;5;3m +1ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/resend-activation, POST} route[39m[38;5;3m +1ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/oauth/:provider/exists, POST} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mPublicController {/public}:[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/public/agent, POST} route[39m[38;5;3m +1ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/public/agencies-list, GET} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/public/agencies-list-slug, GET} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/public/agencies-information/:agency, GET} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/public/agencies-list-count, GET} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/public/posts/:id, GET} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/public/posts/:id/comments, GET} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/public/t, POST} route[39m[38;5;3m +1ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/public/modify-subscription, POST} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/public/crypto/:path, POST} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/public/stream, GET} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mMonitorController {/monitor}:[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/monitor/queue/:name, GET} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mEnterpriseController {/enterprise}:[39m[38;5;3m +1ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/enterprise/create-user, POST} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/enterprise/url, POST} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/enterprise/delete-channel, POST} route[39m[38;5;3m +1ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mNoAuthIntegrationsController {/integrations}:[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/integrations, GET} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/integrations/social-connect/:integration, POST} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/integrations/public/provider/:id/connect, POST} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/integrations/extension-refresh, POST} route[39m[38;5;3m +1ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mOAuthController {/oauth}:[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/oauth/authorize, GET} route[39m[38;5;3m +1ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/oauth/token, POST} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mUsersController {/user}:[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/user/agent-media-sso, GET} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/user/self, GET} route[39m[38;5;3m +1ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/user/personal, GET} route[39m[38;5;3m +1ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/user/impersonate, GET} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/user/impersonate, POST} route[39m[38;5;3m +23ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/user/personal, POST} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/user/email-notifications, GET} route[39m[38;5;3m +1ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/user/email-notifications, POST} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/user/api-key/rotate, POST} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/user/subscription, GET} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/user/subscription/tiers, GET} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/user/join-org, POST} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/user/organizations, GET} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/user/change-org, POST} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/user/logout, POST} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/user/t, POST} route[39m[38;5;3m +1ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAnalyticsController {/analytics}:[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/analytics/:integration, GET} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/analytics/post/:postId, GET} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mIntegrationsController {/integrations}:[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/integrations/provider/:id/connect, POST} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/integrations/:identifier/internal-plugs, GET} route[39m[38;5;3m +1ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/integrations/customers, GET} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/integrations/:id/group, PUT} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/integrations/:id/customer-name, PUT} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/integrations/list, GET} route[39m[38;5;3m +1ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/integrations/:id/settings, POST} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/integrations/:id/nickname, POST} route[39m[38;5;3m +1ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/integrations/:id, GET} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/integrations/social/:integration, GET} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/integrations/:id/time, POST} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/integrations/mentions, POST} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/integrations/function, POST} route[39m[38;5;3m +1ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/integrations/disable, POST} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/integrations/enable, POST} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/integrations, DELETE} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/integrations/plug/list, GET} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/integrations/:id/plugs, GET} route[39m[38;5;3m +1ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/integrations/:id/plugs, POST} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/integrations/plugs/:id/activate, PUT} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/integrations/telegram/updates, GET} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/integrations/moltbook/register, POST} route[39m[38;5;3m +1ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/integrations/moltbook/status, GET} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mSettingsController {/settings}:[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/settings/team, GET} route[39m[38;5;3m +1ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/settings/team, POST} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/settings/team/:id, DELETE} route[39m[38;5;3m +1ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/settings/shortlink, GET} route[39m[38;5;3m +1ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/settings/shortlink, POST} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mPostsController {/posts}:[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/posts/:id/statistics, GET} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/posts/:id/missing, GET} route[39m[38;5;3m +1ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/posts/:id/release-id, PUT} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/posts/should-shortlink, POST} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/posts/:id/comments, POST} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/posts/tags, GET} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/posts/tags, POST} route[39m[38;5;3m +1ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/posts/tags/:id, PUT} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/posts/tags/:id, DELETE} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/posts, GET} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/posts/find-slot, GET} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/posts/find-slot/:id, GET} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/posts/list, GET} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/posts/old, GET} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/posts/group/:group/debug-export, GET} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/posts/group/:group, GET} route[39m[38;5;3m +24ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/posts/:id, GET} route[39m[38;5;3m +27ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/posts, POST} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/posts/generator/draft, POST} route[39m[38;5;3m +1ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/posts/generator, POST} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/posts/:group, DELETE} route[39m[38;5;3m +1ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/posts/:id/date, PUT} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/posts/separate-posts, POST} route[39m[38;5;3m +1ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mMediaController {/media}:[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/media/:id, DELETE} route[39m[38;5;3m +1ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/media/generate-video, POST} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/media/generate-image, POST} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/media/generate-image-with-prompt, POST} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/media/upload-server, POST} route[39m[38;5;3m +1ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/media/save-media, POST} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/media/information, POST} route[39m[38;5;3m +1ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/media/upload-simple, POST} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/media/:endpoint, POST} route[39m[38;5;3m +1ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/media, GET} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/media/video-options, GET} route[39m[38;5;3m +1ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/media/video/function, POST} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/media/generate-video/:type/allowed, GET} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mBillingController {/billing}:[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/billing/check/:id, GET} route[39m[38;5;3m +1ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/billing/check-discount, GET} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/billing/apply-discount, POST} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/billing/finish-trial, POST} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/billing/is-trial-finished, GET} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/billing/embedded, POST} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/billing/subscribe, POST} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/billing/portal, GET} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/billing, GET} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/billing/cancel, POST} route[39m[38;5;3m +1ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/billing/prorate, POST} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/billing/lifetime, POST} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/billing/charges, GET} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/billing/refund-charges, POST} route[39m[38;5;3m +1ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/billing/cancel-subscription, POST} route[39m[38;5;3m +1ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/billing/add-subscription, POST} route[39m[38;5;3m +1ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/billing/crypto, GET} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mNotificationsController {/notifications}:[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/notifications, GET} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/notifications/list, GET} route[39m[38;5;3m +1ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mCopilotController {/copilot}:[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/copilot/chat, POST} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/copilot/agent, POST} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/copilot/credits, GET} route[39m[38;5;3m +1ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/copilot/:thread/list, GET} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/copilot/list, GET} route[39m[38;5;3m +1ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mWebhookController {/webhooks}:[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/webhooks, GET} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/webhooks, POST} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/webhooks, PUT} route[39m[38;5;3m +1ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/webhooks/:id, DELETE} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/webhooks/send, POST} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mSignatureController {/signatures}:[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/signatures, GET} route[39m[38;5;3m +1ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/signatures/default, GET} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/signatures, POST} route[39m[38;5;3m +1ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/signatures/:id, DELETE} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/signatures/:id, PUT} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAutopostController {/autopost}:[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/autopost, GET} route[39m[38;5;3m +1ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/autopost, POST} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/autopost/:id, PUT} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/autopost/:id, DELETE} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/autopost/:id/active, POST} route[39m[38;5;3m +1ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/autopost/send, POST} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mSetsController {/sets}:[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/sets, GET} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/sets, POST} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/sets, PUT} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/sets/:id, DELETE} route[39m[38;5;3m +1ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mThirdPartyController {/third-party}:[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/third-party/list, GET} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/third-party, GET} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/third-party/:id, DELETE} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/third-party/:id/submit, POST} route[39m[38;5;3m +1ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/third-party/function/:id/:functionName, POST} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/third-party/:identifier, POST} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mOAuthAppController {/user/oauth-app}:[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/user/oauth-app, GET} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/user/oauth-app, POST} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/user/oauth-app, PUT} route[39m[38;5;3m +1ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/user/oauth-app, DELETE} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/user/oauth-app/rotate-secret, POST} route[39m[38;5;3m +1ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mApprovedAppsController {/user/approved-apps}:[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/user/approved-apps, GET} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/user/approved-apps/:id, DELETE} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mOAuthAuthorizedController {/oauth}:[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/oauth/authorize, POST} route[39m[38;5;3m +1ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAnnouncementsController {/announcements}:[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/announcements, GET} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/announcements, POST} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/announcements/:id, DELETE} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mPublicIntegrationsController {/public/v1}:[39m[38;5;3m +1ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/public/v1/upload, POST} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/public/v1/upload-from-url, POST} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/public/v1/find-slot/:id, GET} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/public/v1/posts, GET} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/public/v1/posts, POST} route[39m[38;5;3m +1ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/public/v1/posts/:id, DELETE} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/public/v1/posts/group/:group, DELETE} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/public/v1/is-connected, GET} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/public/v1/integrations, GET} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/public/v1/social/:integration, GET} route[39m[38;5;3m +1ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/public/v1/notifications, GET} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/public/v1/generate-video, POST} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/public/v1/video/function, POST} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/public/v1/integrations/:id, DELETE} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/public/v1/integration-settings/:id, GET} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/public/v1/posts/:id/missing, GET} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/public/v1/posts/:id/release-id, PUT} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/public/v1/analytics/:integration, GET} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/public/v1/analytics/post/:postId, GET} route[39m[38;5;3m +0ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/public/v1/integration-trigger/:id, POST} route[39m[38;5;3m +1ms[39m
+2|orchestrator  | 2026-04-05T14:26:57.195Z [INFO] asset workflow-bundle-cbb4a0230911e1a59acd.js 2.86 MiB [emitted] [immutable] (name: main)
+2|orchestrator  | runtime modules 1010 bytes 5 modules
+2|orchestrator  | modules by path ../../node_modules/ 964 KiB
+2|orchestrator  |   modules by path ../../node_modules/@temporalio/ 332 KiB 55 modules
+2|orchestrator  |   modules by path ../../node_modules/nexus-rpc/lib/ 25.6 KiB 17 modules
+2|orchestrator  |   + 4 modules
+2|orchestrator  | modules by path ./dist/ 18.9 KiB
+2|orchestrator  |   modules by path ./dist/apps/orchestrator/src/workflows/ 17.7 KiB 9 modules
+2|orchestrator  |   modules by path ./dist/libraries/nestjs-libraries/src/ 803 bytes 2 modules
+2|orchestrator  |   modules by path ./dist/apps/orchestrator/src/signals/*.js 452 bytes 2 modules
+2|orchestrator  | optional modules 30 bytes [optional]
+2|orchestrator  |   __temporal_custom_payload_converter (ignored) 15 bytes [optional] [built] [code generated]
+2|orchestrator  |   __temporal_custom_failure_converter (ignored) 15 bytes [optional] [built] [code generated]
+2|orchestrator  | webpack 5.105.4 compiled successfully in 1338 ms { sdkComponent: 'worker', taskQueue: 'linkedin' }
+2|orchestrator  | 2026-04-05T14:26:57.754Z [INFO] Workflow bundle created { sdkComponent: 'worker', taskQueue: 'linkedin', size: '2.86MB' }
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:57 PM [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +1866ms[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:57 PM [32m    LOG[39m [32mConfiguration check completed without any issues[39m
+0|backend       | [32m[Nest] 290  - [39m04/05/2026, 2:26:57 PM [32m    LOG[39m [32m­ƒÜÇ Backend is running on: http://localhost:3000[39m
+2|orchestrator  | 2026-04-05T14:26:59.656Z [INFO] asset workflow-bundle-cbb4a0230911e1a59acd.js 2.86 MiB [emitted] [immutable] (name: main)
+2|orchestrator  | runtime modules 1010 bytes 5 modules
+2|orchestrator  | modules by path ../../node_modules/ 964 KiB
+2|orchestrator  |   modules by path ../../node_modules/@temporalio/ 332 KiB 55 modules
+2|orchestrator  |   modules by path ../../node_modules/nexus-rpc/lib/ 25.6 KiB 17 modules
+2|orchestrator  |   + 4 modules
+2|orchestrator  | modules by path ./dist/ 18.9 KiB
+2|orchestrator  |   modules by path ./dist/apps/orchestrator/src/workflows/ 17.7 KiB 9 modules
+2|orchestrator  |   modules by path ./dist/libraries/nestjs-libraries/src/ 803 bytes 2 modules
+2|orchestrator  |   modules by path ./dist/apps/orchestrator/src/signals/*.js 452 bytes 2 modules
+2|orchestrator  | optional modules 30 bytes [optional]
+2|orchestrator  |   __temporal_custom_payload_converter (ignored) 15 bytes [optional] [built] [code generated]
+2|orchestrator  |   __temporal_custom_failure_converter (ignored) 15 bytes [optional] [built] [code generated]
+2|orchestrator  | webpack 5.105.4 compiled successfully in 1202 ms { sdkComponent: 'worker', taskQueue: 'reddit' }
+2|orchestrator  | 2026-04-05T14:26:59.735Z [INFO] Workflow bundle created { sdkComponent: 'worker', taskQueue: 'reddit', size: '2.86MB' }
+2|orchestrator  | 2026-04-05T14:27:04.613Z [INFO] asset workflow-bundle-cbb4a0230911e1a59acd.js 2.86 MiB [emitted] [immutable] (name: main)
+2|orchestrator  | runtime modules 1010 bytes 5 modules
+2|orchestrator  | modules by path ../../node_modules/ 964 KiB
+2|orchestrator  |   modules by path ../../node_modules/@temporalio/ 332 KiB 55 modules
+2|orchestrator  |   modules by path ../../node_modules/nexus-rpc/lib/ 25.6 KiB 17 modules
+2|orchestrator  |   + 4 modules
+2|orchestrator  | modules by path ./dist/ 18.9 KiB
+2|orchestrator  |   modules by path ./dist/apps/orchestrator/src/workflows/ 17.7 KiB 9 modules
+2|orchestrator  |   modules by path ./dist/libraries/nestjs-libraries/src/ 803 bytes 2 modules
+2|orchestrator  |   modules by path ./dist/apps/orchestrator/src/signals/*.js 452 bytes 2 modules
+2|orchestrator  | optional modules 30 bytes [optional]
+2|orchestrator  |   __temporal_custom_payload_converter (ignored) 15 bytes [optional] [built] [code generated]
+2|orchestrator  |   __temporal_custom_failure_converter (ignored) 15 bytes [optional] [built] [code generated]
+2|orchestrator  | webpack 5.105.4 compiled successfully in 3939 ms { sdkComponent: 'worker', taskQueue: 'instagram' }
+2|orchestrator  | 2026-04-05T14:27:04.631Z [INFO] Workflow bundle created { sdkComponent: 'worker', taskQueue: 'instagram', size: '2.86MB' }
+2|orchestrator  | 2026-04-05T14:27:08.048Z [INFO] asset workflow-bundle-cbb4a0230911e1a59acd.js 2.86 MiB [emitted] [immutable] (name: main)
+2|orchestrator  | runtime modules 1010 bytes 5 modules
+2|orchestrator  | modules by path ../../node_modules/ 964 KiB
+2|orchestrator  |   modules by path ../../node_modules/@temporalio/ 332 KiB 55 modules
+2|orchestrator  |   modules by path ../../node_modules/nexus-rpc/lib/ 25.6 KiB 17 modules
+2|orchestrator  |   + 4 modules
+2|orchestrator  | modules by path ./dist/ 18.9 KiB
+2|orchestrator  |   modules by path ./dist/apps/orchestrator/src/workflows/ 17.7 KiB 9 modules
+2|orchestrator  |   modules by path ./dist/libraries/nestjs-libraries/src/ 803 bytes 2 modules
+2|orchestrator  |   modules by path ./dist/apps/orchestrator/src/signals/*.js 452 bytes 2 modules
+2|orchestrator  | optional modules 30 bytes [optional]
+2|orchestrator  |   __temporal_custom_payload_converter (ignored) 15 bytes [optional] [built] [code generated]
+2|orchestrator  |   __temporal_custom_failure_converter (ignored) 15 bytes [optional] [built] [code generated]
+2|orchestrator  | webpack 5.105.4 compiled successfully in 2166 ms { sdkComponent: 'worker', taskQueue: 'facebook' }
+2|orchestrator  | 2026-04-05T14:27:08.088Z [INFO] Workflow bundle created { sdkComponent: 'worker', taskQueue: 'facebook', size: '2.86MB' }
+2|orchestrator  | 2026-04-05T14:27:11.151Z [INFO] asset workflow-bundle-cbb4a0230911e1a59acd.js 2.86 MiB [emitted] [immutable] (name: main)
+2|orchestrator  | runtime modules 1010 bytes 5 modules
+2|orchestrator  | modules by path ../../node_modules/ 964 KiB
+2|orchestrator  |   modules by path ../../node_modules/@temporalio/ 332 KiB 55 modules
+2|orchestrator  |   modules by path ../../node_modules/nexus-rpc/lib/ 25.6 KiB 17 modules
+2|orchestrator  |   + 4 modules
+2|orchestrator  | modules by path ./dist/ 18.9 KiB
+2|orchestrator  |   modules by path ./dist/apps/orchestrator/src/workflows/ 17.7 KiB 9 modules
+2|orchestrator  |   modules by path ./dist/libraries/nestjs-libraries/src/ 803 bytes 2 modules
+2|orchestrator  |   modules by path ./dist/apps/orchestrator/src/signals/*.js 452 bytes 2 modules
+2|orchestrator  | optional modules 30 bytes [optional]
+2|orchestrator  |   __temporal_custom_payload_converter (ignored) 15 bytes [optional] [built] [code generated]
+2|orchestrator  |   __temporal_custom_failure_converter (ignored) 15 bytes [optional] [built] [code generated]
+2|orchestrator  | webpack 5.105.4 compiled successfully in 969 ms { sdkComponent: 'worker', taskQueue: 'threads' }
+2|orchestrator  | 2026-04-05T14:27:11.205Z [INFO] Workflow bundle created { sdkComponent: 'worker', taskQueue: 'threads', size: '2.86MB' }
+2|orchestrator  | 2026-04-05T14:27:12.573Z [INFO] asset workflow-bundle-cbb4a0230911e1a59acd.js 2.86 MiB [emitted] [immutable] (name: main)
+2|orchestrator  | runtime modules 1010 bytes 5 modules
+2|orchestrator  | modules by path ../../node_modules/ 964 KiB
+2|orchestrator  |   modules by path ../../node_modules/@temporalio/ 332 KiB 55 modules
+2|orchestrator  |   modules by path ../../node_modules/nexus-rpc/lib/ 25.6 KiB 17 modules
+2|orchestrator  |   + 4 modules
+2|orchestrator  | modules by path ./dist/ 18.9 KiB
+2|orchestrator  |   modules by path ./dist/apps/orchestrator/src/workflows/ 17.7 KiB 9 modules
+2|orchestrator  |   modules by path ./dist/libraries/nestjs-libraries/src/ 803 bytes 2 modules
+2|orchestrator  |   modules by path ./dist/apps/orchestrator/src/signals/*.js 452 bytes 2 modules
+2|orchestrator  | optional modules 30 bytes [optional]
+2|orchestrator  |   __temporal_custom_payload_converter (ignored) 15 bytes [optional] [built] [code generated]
+2|orchestrator  |   __temporal_custom_failure_converter (ignored) 15 bytes [optional] [built] [code generated]
+2|orchestrator  | webpack 5.105.4 compiled successfully in 837 ms { sdkComponent: 'worker', taskQueue: 'youtube' }
+2|orchestrator  | 2026-04-05T14:27:12.589Z [INFO] Workflow bundle created { sdkComponent: 'worker', taskQueue: 'youtube', size: '2.86MB' }
+2|orchestrator  | 2026-04-05T14:27:14.748Z [INFO] asset workflow-bundle-cbb4a0230911e1a59acd.js 2.86 MiB [emitted] [immutable] (name: main)
+2|orchestrator  | runtime modules 1010 bytes 5 modules
+2|orchestrator  | modules by path ../../node_modules/ 964 KiB
+2|orchestrator  |   modules by path ../../node_modules/@temporalio/ 332 KiB 55 modules
+2|orchestrator  |   modules by path ../../node_modules/nexus-rpc/lib/ 25.6 KiB 17 modules
+2|orchestrator  |   + 4 modules
+2|orchestrator  | modules by path ./dist/ 18.9 KiB
+2|orchestrator  |   modules by path ./dist/apps/orchestrator/src/workflows/ 17.7 KiB 9 modules
+2|orchestrator  |   modules by path ./dist/libraries/nestjs-libraries/src/ 803 bytes 2 modules
+2|orchestrator  |   modules by path ./dist/apps/orchestrator/src/signals/*.js 452 bytes 2 modules
+2|orchestrator  | optional modules 30 bytes [optional]
+2|orchestrator  |   __temporal_custom_payload_converter (ignored) 15 bytes [optional] [built] [code generated]
+2|orchestrator  |   __temporal_custom_failure_converter (ignored) 15 bytes [optional] [built] [code generated]
+2|orchestrator  | webpack 5.105.4 compiled successfully in 1078 ms { sdkComponent: 'worker', taskQueue: 'gmb' }
+2|orchestrator  | 2026-04-05T14:27:14.919Z [INFO] Workflow bundle created { sdkComponent: 'worker', taskQueue: 'gmb', size: '2.86MB' }
+2|orchestrator  | 2026-04-05T14:27:31.447Z [INFO] asset workflow-bundle-cbb4a0230911e1a59acd.js 2.86 MiB [emitted] [immutable] (name: main)
+2|orchestrator  | runtime modules 1010 bytes 5 modules
+2|orchestrator  | modules by path ../../node_modules/ 964 KiB
+2|orchestrator  |   modules by path ../../node_modules/@temporalio/ 332 KiB 55 modules
+2|orchestrator  |   modules by path ../../node_modules/nexus-rpc/lib/ 25.6 KiB 17 modules
+2|orchestrator  |   + 4 modules
+2|orchestrator  | modules by path ./dist/ 18.9 KiB
+2|orchestrator  |   modules by path ./dist/apps/orchestrator/src/workflows/ 17.7 KiB 9 modules
+2|orchestrator  |   modules by path ./dist/libraries/nestjs-libraries/src/ 803 bytes 2 modules
+2|orchestrator  |   modules by path ./dist/apps/orchestrator/src/signals/*.js 452 bytes 2 modules
+2|orchestrator  | optional modules 30 bytes [optional]
+2|orchestrator  |   __temporal_custom_payload_converter (ignored) 15 bytes [optional] [built] [code generated]
+2|orchestrator  |   __temporal_custom_failure_converter (ignored) 15 bytes [optional] [built] [code generated]
+2|orchestrator  | webpack 5.105.4 compiled successfully in 1760 ms { sdkComponent: 'worker', taskQueue: 'tiktok' }
+2|orchestrator  | 2026-04-05T14:27:31.484Z [INFO] Workflow bundle created { sdkComponent: 'worker', taskQueue: 'tiktok', size: '2.86MB' }
+2|orchestrator  | 2026-04-05T14:27:32.778Z [INFO] asset workflow-bundle-cbb4a0230911e1a59acd.js 2.86 MiB [emitted] [immutable] (name: main)
+2|orchestrator  | runtime modules 1010 bytes 5 modules
+2|orchestrator  | modules by path ../../node_modules/ 964 KiB
+2|orchestrator  |   modules by path ../../node_modules/@temporalio/ 332 KiB 55 modules
+2|orchestrator  |   modules by path ../../node_modules/nexus-rpc/lib/ 25.6 KiB 17 modules
+2|orchestrator  |   + 4 modules
+2|orchestrator  | modules by path ./dist/ 18.9 KiB
+2|orchestrator  |   modules by path ./dist/apps/orchestrator/src/workflows/ 17.7 KiB 9 modules
+2|orchestrator  |   modules by path ./dist/libraries/nestjs-libraries/src/ 803 bytes 2 modules
+2|orchestrator  |   modules by path ./dist/apps/orchestrator/src/signals/*.js 452 bytes 2 modules
+2|orchestrator  | optional modules 30 bytes [optional]
+2|orchestrator  |   __temporal_custom_payload_converter (ignored) 15 bytes [optional] [built] [code generated]
+2|orchestrator  |   __temporal_custom_failure_converter (ignored) 15 bytes [optional] [built] [code generated]
+2|orchestrator  | webpack 5.105.4 compiled successfully in 718 ms { sdkComponent: 'worker', taskQueue: 'pinterest' }
+2|orchestrator  | 2026-04-05T14:27:32.799Z [INFO] Workflow bundle created { sdkComponent: 'worker', taskQueue: 'pinterest', size: '2.86MB' }
+2|orchestrator  | 2026-04-05T14:27:34.036Z [INFO] asset workflow-bundle-cbb4a0230911e1a59acd.js 2.86 MiB [emitted] [immutable] (name: main)
+2|orchestrator  | runtime modules 1010 bytes 5 modules
+2|orchestrator  | modules by path ../../node_modules/ 964 KiB
+2|orchestrator  |   modules by path ../../node_modules/@temporalio/ 332 KiB 55 modules
+2|orchestrator  |   modules by path ../../node_modules/nexus-rpc/lib/ 25.6 KiB 17 modules
+2|orchestrator  |   + 4 modules
+2|orchestrator  | modules by path ./dist/ 18.9 KiB
+2|orchestrator  |   modules by path ./dist/apps/orchestrator/src/workflows/ 17.7 KiB 9 modules
+2|orchestrator  |   modules by path ./dist/libraries/nestjs-libraries/src/ 803 bytes 2 modules
+2|orchestrator  |   modules by path ./dist/apps/orchestrator/src/signals/*.js 452 bytes 2 modules
+2|orchestrator  | optional modules 30 bytes [optional]
+2|orchestrator  |   __temporal_custom_payload_converter (ignored) 15 bytes [optional] [built] [code generated]
+2|orchestrator  |   __temporal_custom_failure_converter (ignored) 15 bytes [optional] [built] [code generated]
+2|orchestrator  | webpack 5.105.4 compiled successfully in 690 ms { sdkComponent: 'worker', taskQueue: 'dribbble' }
+2|orchestrator  | 2026-04-05T14:27:36.949Z [INFO] Workflow bundle created { sdkComponent: 'worker', taskQueue: 'dribbble', size: '2.86MB' }
+2|orchestrator  | 2026-04-05T14:27:38.515Z [INFO] asset workflow-bundle-cbb4a0230911e1a59acd.js 2.86 MiB [emitted] [immutable] (name: main)
+2|orchestrator  | runtime modules 1010 bytes 5 modules
+2|orchestrator  | modules by path ../../node_modules/ 964 KiB
+2|orchestrator  |   modules by path ../../node_modules/@temporalio/ 332 KiB 55 modules
+2|orchestrator  |   modules by path ../../node_modules/nexus-rpc/lib/ 25.6 KiB 17 modules
+2|orchestrator  |   + 4 modules
+2|orchestrator  | modules by path ./dist/ 18.9 KiB
+2|orchestrator  |   modules by path ./dist/apps/orchestrator/src/workflows/ 17.7 KiB 9 modules
+2|orchestrator  |   modules by path ./dist/libraries/nestjs-libraries/src/ 803 bytes 2 modules
+2|orchestrator  |   modules by path ./dist/apps/orchestrator/src/signals/*.js 452 bytes 2 modules
+2|orchestrator  | optional modules 30 bytes [optional]
+2|orchestrator  |   __temporal_custom_payload_converter (ignored) 15 bytes [optional] [built] [code generated]
+2|orchestrator  |   __temporal_custom_failure_converter (ignored) 15 bytes [optional] [built] [code generated]
+2|orchestrator  | webpack 5.105.4 compiled successfully in 765 ms { sdkComponent: 'worker', taskQueue: 'discord' }
+2|orchestrator  | 2026-04-05T14:27:38.596Z [INFO] Workflow bundle created { sdkComponent: 'worker', taskQueue: 'discord', size: '2.86MB' }
+2|orchestrator  | 2026-04-05T14:27:39.869Z [INFO] asset workflow-bundle-cbb4a0230911e1a59acd.js 2.86 MiB [emitted] [immutable] (name: main)
+2|orchestrator  | runtime modules 1010 bytes 5 modules
+2|orchestrator  | modules by path ../../node_modules/ 964 KiB
+2|orchestrator  |   modules by path ../../node_modules/@temporalio/ 332 KiB 55 modules
+2|orchestrator  |   modules by path ../../node_modules/nexus-rpc/lib/ 25.6 KiB 17 modules
+2|orchestrator  |   + 4 modules
+2|orchestrator  | modules by path ./dist/ 18.9 KiB
+2|orchestrator  |   modules by path ./dist/apps/orchestrator/src/workflows/ 17.7 KiB 9 modules
+2|orchestrator  |   modules by path ./dist/libraries/nestjs-libraries/src/ 803 bytes 2 modules
+2|orchestrator  |   modules by path ./dist/apps/orchestrator/src/signals/*.js 452 bytes 2 modules
+2|orchestrator  | optional modules 30 bytes [optional]
+2|orchestrator  |   __temporal_custom_payload_converter (ignored) 15 bytes [optional] [built] [code generated]
+2|orchestrator  |   __temporal_custom_failure_converter (ignored) 15 bytes [optional] [built] [code generated]
+2|orchestrator  | webpack 5.105.4 compiled successfully in 733 ms { sdkComponent: 'worker', taskQueue: 'slack' }
+2|orchestrator  | 2026-04-05T14:27:39.881Z [INFO] Workflow bundle created { sdkComponent: 'worker', taskQueue: 'slack', size: '2.86MB' }
+2|orchestrator  | 2026-04-05T14:27:41.031Z [INFO] asset workflow-bundle-cbb4a0230911e1a59acd.js 2.86 MiB [emitted] [immutable] (name: main)
+2|orchestrator  | runtime modules 1010 bytes 5 modules
+2|orchestrator  | modules by path ../../node_modules/ 964 KiB
+2|orchestrator  |   modules by path ../../node_modules/@temporalio/ 332 KiB 55 modules
+2|orchestrator  |   modules by path ../../node_modules/nexus-rpc/lib/ 25.6 KiB 17 modules
+2|orchestrator  |   + 4 modules
+2|orchestrator  | modules by path ./dist/ 18.9 KiB
+2|orchestrator  |   modules by path ./dist/apps/orchestrator/src/workflows/ 17.7 KiB 9 modules
+2|orchestrator  |   modules by path ./dist/libraries/nestjs-libraries/src/ 803 bytes 2 modules
+2|orchestrator  |   modules by path ./dist/apps/orchestrator/src/signals/*.js 452 bytes 2 modules
+2|orchestrator  | optional modules 30 bytes [optional]
+2|orchestrator  |   __temporal_custom_payload_converter (ignored) 15 bytes [optional] [built] [code generated]
+2|orchestrator  |   __temporal_custom_failure_converter (ignored) 15 bytes [optional] [built] [code generated]
+2|orchestrator  | webpack 5.105.4 compiled successfully in 722 ms { sdkComponent: 'worker', taskQueue: 'kick' }
+2|orchestrator  | 2026-04-05T14:27:41.078Z [INFO] Workflow bundle created { sdkComponent: 'worker', taskQueue: 'kick', size: '2.86MB' }
+2|orchestrator  | 2026-04-05T14:27:42.766Z [INFO] asset workflow-bundle-cbb4a0230911e1a59acd.js 2.86 MiB [emitted] [immutable] (name: main)
+2|orchestrator  | runtime modules 1010 bytes 5 modules
+2|orchestrator  | modules by path ../../node_modules/ 964 KiB
+2|orchestrator  |   modules by path ../../node_modules/@temporalio/ 332 KiB 55 modules
+2|orchestrator  |   modules by path ../../node_modules/nexus-rpc/lib/ 25.6 KiB 17 modules
+2|orchestrator  |   + 4 modules
+2|orchestrator  | modules by path ./dist/ 18.9 KiB
+2|orchestrator  |   modules by path ./dist/apps/orchestrator/src/workflows/ 17.7 KiB 9 modules
+2|orchestrator  |   modules by path ./dist/libraries/nestjs-libraries/src/ 803 bytes 2 modules
+2|orchestrator  |   modules by path ./dist/apps/orchestrator/src/signals/*.js 452 bytes 2 modules
+2|orchestrator  | optional modules 30 bytes [optional]
+2|orchestrator  |   __temporal_custom_payload_converter (ignored) 15 bytes [optional] [built] [code generated]
+2|orchestrator  |   __temporal_custom_failure_converter (ignored) 15 bytes [optional] [built] [code generated]
+2|orchestrator  | webpack 5.105.4 compiled successfully in 915 ms { sdkComponent: 'worker', taskQueue: 'twitch' }
+2|orchestrator  | 2026-04-05T14:27:42.831Z [INFO] Workflow bundle created { sdkComponent: 'worker', taskQueue: 'twitch', size: '2.86MB' }
+2|orchestrator  | 2026-04-05T14:27:44.313Z [INFO] asset workflow-bundle-cbb4a0230911e1a59acd.js 2.86 MiB [emitted] [immutable] (name: main)
+2|orchestrator  | runtime modules 1010 bytes 5 modules
+2|orchestrator  | modules by path ../../node_modules/ 964 KiB
+2|orchestrator  |   modules by path ../../node_modules/@temporalio/ 332 KiB 55 modules
+2|orchestrator  |   modules by path ../../node_modules/nexus-rpc/lib/ 25.6 KiB 17 modules
+2|orchestrator  |   + 4 modules
+2|orchestrator  | modules by path ./dist/ 18.9 KiB
+2|orchestrator  |   modules by path ./dist/apps/orchestrator/src/workflows/ 17.7 KiB 9 modules
+2|orchestrator  |   modules by path ./dist/libraries/nestjs-libraries/src/ 803 bytes 2 modules
+2|orchestrator  |   modules by path ./dist/apps/orchestrator/src/signals/*.js 452 bytes 2 modules
+2|orchestrator  | optional modules 30 bytes [optional]
+2|orchestrator  |   __temporal_custom_payload_converter (ignored) 15 bytes [optional] [built] [code generated]
+2|orchestrator  |   __temporal_custom_failure_converter (ignored) 15 bytes [optional] [built] [code generated]
+2|orchestrator  | webpack 5.105.4 compiled successfully in 865 ms { sdkComponent: 'worker', taskQueue: 'mastodon' }
+2|orchestrator  | 2026-04-05T14:27:44.330Z [INFO] Workflow bundle created { sdkComponent: 'worker', taskQueue: 'mastodon', size: '2.86MB' }
+2|orchestrator  | 2026-04-05T14:27:45.570Z [INFO] asset workflow-bundle-cbb4a0230911e1a59acd.js 2.86 MiB [emitted] [immutable] (name: main)
+2|orchestrator  | runtime modules 1010 bytes 5 modules
+2|orchestrator  | modules by path ../../node_modules/ 964 KiB
+2|orchestrator  |   modules by path ../../node_modules/@temporalio/ 332 KiB 55 modules
+2|orchestrator  |   modules by path ../../node_modules/nexus-rpc/lib/ 25.6 KiB 17 modules
+2|orchestrator  |   + 4 modules
+2|orchestrator  | modules by path ./dist/ 18.9 KiB
+2|orchestrator  |   modules by path ./dist/apps/orchestrator/src/workflows/ 17.7 KiB 9 modules
+2|orchestrator  |   modules by path ./dist/libraries/nestjs-libraries/src/ 803 bytes 2 modules
+2|orchestrator  |   modules by path ./dist/apps/orchestrator/src/signals/*.js 452 bytes 2 modules
+2|orchestrator  | optional modules 30 bytes [optional]
+2|orchestrator  |   __temporal_custom_payload_converter (ignored) 15 bytes [optional] [built] [code generated]
+2|orchestrator  |   __temporal_custom_failure_converter (ignored) 15 bytes [optional] [built] [code generated]
+2|orchestrator  | webpack 5.105.4 compiled successfully in 722 ms { sdkComponent: 'worker', taskQueue: 'bluesky' }
+2|orchestrator  | 2026-04-05T14:27:45.638Z [INFO] Workflow bundle created { sdkComponent: 'worker', taskQueue: 'bluesky', size: '2.86MB' }
+2|orchestrator  | 2026-04-05T14:27:47.121Z [INFO] asset workflow-bundle-cbb4a0230911e1a59acd.js 2.86 MiB [emitted] [immutable] (name: main)
+2|orchestrator  | runtime modules 1010 bytes 5 modules
+2|orchestrator  | modules by path ../../node_modules/ 964 KiB
+2|orchestrator  |   modules by path ../../node_modules/@temporalio/ 332 KiB 55 modules
+2|orchestrator  |   modules by path ../../node_modules/nexus-rpc/lib/ 25.6 KiB 17 modules
+2|orchestrator  |   + 4 modules
+2|orchestrator  | modules by path ./dist/ 18.9 KiB
+2|orchestrator  |   modules by path ./dist/apps/orchestrator/src/workflows/ 17.7 KiB 9 modules
+2|orchestrator  |   modules by path ./dist/libraries/nestjs-libraries/src/ 803 bytes 2 modules
+2|orchestrator  |   modules by path ./dist/apps/orchestrator/src/signals/*.js 452 bytes 2 modules
+2|orchestrator  | optional modules 30 bytes [optional]
+2|orchestrator  |   __temporal_custom_payload_converter (ignored) 15 bytes [optional] [built] [code generated]
+2|orchestrator  |   __temporal_custom_failure_converter (ignored) 15 bytes [optional] [built] [code generated]
+2|orchestrator  | webpack 5.105.4 compiled successfully in 794 ms { sdkComponent: 'worker', taskQueue: 'lemmy' }
+2|orchestrator  | 2026-04-05T14:27:47.131Z [INFO] Workflow bundle created { sdkComponent: 'worker', taskQueue: 'lemmy', size: '2.86MB' }
+2|orchestrator  | 2026-04-05T14:27:48.112Z [INFO] asset workflow-bundle-cbb4a0230911e1a59acd.js 2.86 MiB [emitted] [immutable] (name: main)
+2|orchestrator  | runtime modules 1010 bytes 5 modules
+2|orchestrator  | modules by path ../../node_modules/ 964 KiB
+2|orchestrator  |   modules by path ../../node_modules/@temporalio/ 332 KiB 55 modules
+2|orchestrator  |   modules by path ../../node_modules/nexus-rpc/lib/ 25.6 KiB 17 modules
+2|orchestrator  |   + 4 modules
+2|orchestrator  | modules by path ./dist/ 18.9 KiB
+2|orchestrator  |   modules by path ./dist/apps/orchestrator/src/workflows/ 17.7 KiB 9 modules
+2|orchestrator  |   modules by path ./dist/libraries/nestjs-libraries/src/ 803 bytes 2 modules
+2|orchestrator  |   modules by path ./dist/apps/orchestrator/src/signals/*.js 452 bytes 2 modules
+2|orchestrator  | optional modules 30 bytes [optional]
+2|orchestrator  |   __temporal_custom_payload_converter (ignored) 15 bytes [optional] [built] [code generated]
+2|orchestrator  |   __temporal_custom_failure_converter (ignored) 15 bytes [optional] [built] [code generated]
+2|orchestrator  | webpack 5.105.4 compiled successfully in 655 ms { sdkComponent: 'worker', taskQueue: 'wrapcast' }
+2|orchestrator  | 2026-04-05T14:27:48.125Z [INFO] Workflow bundle created { sdkComponent: 'worker', taskQueue: 'wrapcast', size: '2.86MB' }
+2|orchestrator  | 2026-04-05T14:27:49.398Z [INFO] asset workflow-bundle-cbb4a0230911e1a59acd.js 2.86 MiB [emitted] [immutable] (name: main)
+2|orchestrator  | runtime modules 1010 bytes 5 modules
+2|orchestrator  | modules by path ../../node_modules/ 964 KiB
+2|orchestrator  |   modules by path ../../node_modules/@temporalio/ 332 KiB 55 modules
+2|orchestrator  |   modules by path ../../node_modules/nexus-rpc/lib/ 25.6 KiB 17 modules
+2|orchestrator  |   + 4 modules
+2|orchestrator  | modules by path ./dist/ 18.9 KiB
+2|orchestrator  |   modules by path ./dist/apps/orchestrator/src/workflows/ 17.7 KiB 9 modules
+2|orchestrator  |   modules by path ./dist/libraries/nestjs-libraries/src/ 803 bytes 2 modules
+2|orchestrator  |   modules by path ./dist/apps/orchestrator/src/signals/*.js 452 bytes 2 modules
+2|orchestrator  | optional modules 30 bytes [optional]
+2|orchestrator  |   __temporal_custom_payload_converter (ignored) 15 bytes [optional] [built] [code generated]
+2|orchestrator  |   __temporal_custom_failure_converter (ignored) 15 bytes [optional] [built] [code generated]
+2|orchestrator  | webpack 5.105.4 compiled successfully in 723 ms { sdkComponent: 'worker', taskQueue: 'telegram' }
+2|orchestrator  | 2026-04-05T14:27:49.441Z [INFO] Workflow bundle created { sdkComponent: 'worker', taskQueue: 'telegram', size: '2.86MB' }
+2|orchestrator  | 2026-04-05T14:27:50.945Z [INFO] asset workflow-bundle-cbb4a0230911e1a59acd.js 2.86 MiB [emitted] [immutable] (name: main)
+2|orchestrator  | runtime modules 1010 bytes 5 modules
+2|orchestrator  | modules by path ../../node_modules/ 964 KiB
+2|orchestrator  |   modules by path ../../node_modules/@temporalio/ 332 KiB 55 modules
+2|orchestrator  |   modules by path ../../node_modules/nexus-rpc/lib/ 25.6 KiB 17 modules
+2|orchestrator  |   + 4 modules
+2|orchestrator  | modules by path ./dist/ 18.9 KiB
+2|orchestrator  |   modules by path ./dist/apps/orchestrator/src/workflows/ 17.7 KiB 9 modules
+2|orchestrator  |   modules by path ./dist/libraries/nestjs-libraries/src/ 803 bytes 2 modules
+2|orchestrator  |   modules by path ./dist/apps/orchestrator/src/signals/*.js 452 bytes 2 modules
+2|orchestrator  | optional modules 30 bytes [optional]
+2|orchestrator  |   __temporal_custom_payload_converter (ignored) 15 bytes [optional] [built] [code generated]
+2|orchestrator  |   __temporal_custom_failure_converter (ignored) 15 bytes [optional] [built] [code generated]
+2|orchestrator  | webpack 5.105.4 compiled successfully in 896 ms { sdkComponent: 'worker', taskQueue: 'nostr' }
+2|orchestrator  | 2026-04-05T14:27:50.963Z [INFO] Workflow bundle created { sdkComponent: 'worker', taskQueue: 'nostr', size: '2.86MB' }
+2|orchestrator  | 2026-04-05T14:27:52.386Z [INFO] asset workflow-bundle-cbb4a0230911e1a59acd.js 2.86 MiB [emitted] [immutable] (name: main)
+2|orchestrator  | runtime modules 1010 bytes 5 modules
+2|orchestrator  | modules by path ../../node_modules/ 964 KiB
+2|orchestrator  |   modules by path ../../node_modules/@temporalio/ 332 KiB 55 modules
+2|orchestrator  |   modules by path ../../node_modules/nexus-rpc/lib/ 25.6 KiB 17 modules
+2|orchestrator  |   + 4 modules
+2|orchestrator  | modules by path ./dist/ 18.9 KiB
+2|orchestrator  |   modules by path ./dist/apps/orchestrator/src/workflows/ 17.7 KiB 9 modules
+2|orchestrator  |   modules by path ./dist/libraries/nestjs-libraries/src/ 803 bytes 2 modules
+2|orchestrator  |   modules by path ./dist/apps/orchestrator/src/signals/*.js 452 bytes 2 modules
+2|orchestrator  | optional modules 30 bytes [optional]
+2|orchestrator  |   __temporal_custom_payload_converter (ignored) 15 bytes [optional] [built] [code generated]
+2|orchestrator  |   __temporal_custom_failure_converter (ignored) 15 bytes [optional] [built] [code generated]
+2|orchestrator  | webpack 5.105.4 compiled successfully in 672 ms { sdkComponent: 'worker', taskQueue: 'vk' }
+2|orchestrator  | 2026-04-05T14:27:52.408Z [INFO] Workflow bundle created { sdkComponent: 'worker', taskQueue: 'vk', size: '2.86MB' }
+2|orchestrator  | 2026-04-05T14:27:54.126Z [INFO] asset workflow-bundle-cbb4a0230911e1a59acd.js 2.86 MiB [emitted] [immutable] (name: main)
+2|orchestrator  | runtime modules 1010 bytes 5 modules
+2|orchestrator  | modules by path ../../node_modules/ 964 KiB
+2|orchestrator  |   modules by path ../../node_modules/@temporalio/ 332 KiB 55 modules
+2|orchestrator  |   modules by path ../../node_modules/nexus-rpc/lib/ 25.6 KiB 17 modules
+2|orchestrator  |   + 4 modules
+2|orchestrator  | modules by path ./dist/ 18.9 KiB
+2|orchestrator  |   modules by path ./dist/apps/orchestrator/src/workflows/ 17.7 KiB 9 modules
+2|orchestrator  |   modules by path ./dist/libraries/nestjs-libraries/src/ 803 bytes 2 modules
+2|orchestrator  |   modules by path ./dist/apps/orchestrator/src/signals/*.js 452 bytes 2 modules
+2|orchestrator  | optional modules 30 bytes [optional]
+2|orchestrator  |   __temporal_custom_payload_converter (ignored) 15 bytes [optional] [built] [code generated]
+2|orchestrator  |   __temporal_custom_failure_converter (ignored) 15 bytes [optional] [built] [code generated]
+2|orchestrator  | webpack 5.105.4 compiled successfully in 935 ms { sdkComponent: 'worker', taskQueue: 'medium' }
+2|orchestrator  | 2026-04-05T14:27:54.149Z [INFO] Workflow bundle created { sdkComponent: 'worker', taskQueue: 'medium', size: '2.86MB' }
+2|orchestrator  | 2026-04-05T14:27:55.810Z [INFO] asset workflow-bundle-cbb4a0230911e1a59acd.js 2.86 MiB [emitted] [immutable] (name: main)
+2|orchestrator  | runtime modules 1010 bytes 5 modules
+2|orchestrator  | modules by path ../../node_modules/ 964 KiB
+2|orchestrator  |   modules by path ../../node_modules/@temporalio/ 332 KiB 55 modules
+2|orchestrator  |   modules by path ../../node_modules/nexus-rpc/lib/ 25.6 KiB 17 modules
+2|orchestrator  |   + 4 modules
+2|orchestrator  | modules by path ./dist/ 18.9 KiB
+2|orchestrator  |   modules by path ./dist/apps/orchestrator/src/workflows/ 17.7 KiB 9 modules
+2|orchestrator  |   modules by path ./dist/libraries/nestjs-libraries/src/ 803 bytes 2 modules
+2|orchestrator  |   modules by path ./dist/apps/orchestrator/src/signals/*.js 452 bytes 2 modules
+2|orchestrator  | optional modules 30 bytes [optional]
+2|orchestrator  |   __temporal_custom_payload_converter (ignored) 15 bytes [optional] [built] [code generated]
+2|orchestrator  |   __temporal_custom_failure_converter (ignored) 15 bytes [optional] [built] [code generated]
+2|orchestrator  | webpack 5.105.4 compiled successfully in 1117 ms { sdkComponent: 'worker', taskQueue: 'devto' }
+2|orchestrator  | 2026-04-05T14:27:55.824Z [INFO] Workflow bundle created { sdkComponent: 'worker', taskQueue: 'devto', size: '2.86MB' }
+2|orchestrator  | 2026-04-05T14:27:57.034Z [INFO] asset workflow-bundle-cbb4a0230911e1a59acd.js 2.86 MiB [emitted] [immutable] (name: main)
+2|orchestrator  | runtime modules 1010 bytes 5 modules
+2|orchestrator  | modules by path ../../node_modules/ 964 KiB
+2|orchestrator  |   modules by path ../../node_modules/@temporalio/ 332 KiB 55 modules
+2|orchestrator  |   modules by path ../../node_modules/nexus-rpc/lib/ 25.6 KiB 17 modules
+2|orchestrator  |   + 4 modules
+2|orchestrator  | modules by path ./dist/ 18.9 KiB
+2|orchestrator  |   modules by path ./dist/apps/orchestrator/src/workflows/ 17.7 KiB 9 modules
+2|orchestrator  |   modules by path ./dist/libraries/nestjs-libraries/src/ 803 bytes 2 modules
+2|orchestrator  |   modules by path ./dist/apps/orchestrator/src/signals/*.js 452 bytes 2 modules
+2|orchestrator  | optional modules 30 bytes [optional]
+2|orchestrator  |   __temporal_custom_payload_converter (ignored) 15 bytes [optional] [built] [code generated]
+2|orchestrator  |   __temporal_custom_failure_converter (ignored) 15 bytes [optional] [built] [code generated]
+2|orchestrator  | webpack 5.105.4 compiled successfully in 782 ms { sdkComponent: 'worker', taskQueue: 'hashnode' }
+2|orchestrator  | 2026-04-05T14:27:57.053Z [INFO] Workflow bundle created { sdkComponent: 'worker', taskQueue: 'hashnode', size: '2.86MB' }
+2|orchestrator  | 2026-04-05T14:27:58.426Z [INFO] asset workflow-bundle-cbb4a0230911e1a59acd.js 2.86 MiB [emitted] [immutable] (name: main)
+2|orchestrator  | runtime modules 1010 bytes 5 modules
+2|orchestrator  | modules by path ../../node_modules/ 964 KiB
+2|orchestrator  |   modules by path ../../node_modules/@temporalio/ 332 KiB 55 modules
+2|orchestrator  |   modules by path ../../node_modules/nexus-rpc/lib/ 25.6 KiB 17 modules
+2|orchestrator  |   + 4 modules
+2|orchestrator  | modules by path ./dist/ 18.9 KiB
+2|orchestrator  |   modules by path ./dist/apps/orchestrator/src/workflows/ 17.7 KiB 9 modules
+2|orchestrator  |   modules by path ./dist/libraries/nestjs-libraries/src/ 803 bytes 2 modules
+2|orchestrator  |   modules by path ./dist/apps/orchestrator/src/signals/*.js 452 bytes 2 modules
+2|orchestrator  | optional modules 30 bytes [optional]
+2|orchestrator  |   __temporal_custom_payload_converter (ignored) 15 bytes [optional] [built] [code generated]
+2|orchestrator  |   __temporal_custom_failure_converter (ignored) 15 bytes [optional] [built] [code generated]
+2|orchestrator  | webpack 5.105.4 compiled successfully in 757 ms { sdkComponent: 'worker', taskQueue: 'wordpress' }
+2|orchestrator  | 2026-04-05T14:27:58.437Z [INFO] Workflow bundle created { sdkComponent: 'worker', taskQueue: 'wordpress', size: '2.86MB' }
+2|orchestrator  | 2026-04-05T14:27:59.424Z [INFO] asset workflow-bundle-cbb4a0230911e1a59acd.js 2.86 MiB [emitted] [immutable] (name: main)
+2|orchestrator  | runtime modules 1010 bytes 5 modules
+2|orchestrator  | modules by path ../../node_modules/ 964 KiB
+2|orchestrator  |   modules by path ../../node_modules/@temporalio/ 332 KiB 55 modules
+2|orchestrator  |   modules by path ../../node_modules/nexus-rpc/lib/ 25.6 KiB 17 modules
+2|orchestrator  |   + 4 modules
+2|orchestrator  | modules by path ./dist/ 18.9 KiB
+2|orchestrator  |   modules by path ./dist/apps/orchestrator/src/workflows/ 17.7 KiB 9 modules
+2|orchestrator  |   modules by path ./dist/libraries/nestjs-libraries/src/ 803 bytes 2 modules
+2|orchestrator  |   modules by path ./dist/apps/orchestrator/src/signals/*.js 452 bytes 2 modules
+2|orchestrator  | optional modules 30 bytes [optional]
+2|orchestrator  |   __temporal_custom_payload_converter (ignored) 15 bytes [optional] [built] [code generated]
+2|orchestrator  |   __temporal_custom_failure_converter (ignored) 15 bytes [optional] [built] [code generated]
+2|orchestrator  | webpack 5.105.4 compiled successfully in 627 ms { sdkComponent: 'worker', taskQueue: 'listmonk' }
+2|orchestrator  | 2026-04-05T14:27:59.441Z [INFO] Workflow bundle created { sdkComponent: 'worker', taskQueue: 'listmonk', size: '2.86MB' }
+2|orchestrator  | 2026-04-05T14:28:00.963Z [INFO] asset workflow-bundle-cbb4a0230911e1a59acd.js 2.86 MiB [emitted] [immutable] (name: main)
+2|orchestrator  | runtime modules 1010 bytes 5 modules
+2|orchestrator  | modules by path ../../node_modules/ 964 KiB
+2|orchestrator  |   modules by path ../../node_modules/@temporalio/ 332 KiB 55 modules
+2|orchestrator  |   modules by path ../../node_modules/nexus-rpc/lib/ 25.6 KiB 17 modules
+2|orchestrator  |   + 4 modules
+2|orchestrator  | modules by path ./dist/ 18.9 KiB
+2|orchestrator  |   modules by path ./dist/apps/orchestrator/src/workflows/ 17.7 KiB 9 modules
+2|orchestrator  |   modules by path ./dist/libraries/nestjs-libraries/src/ 803 bytes 2 modules
+2|orchestrator  |   modules by path ./dist/apps/orchestrator/src/signals/*.js 452 bytes 2 modules
+2|orchestrator  | optional modules 30 bytes [optional]
+2|orchestrator  |   __temporal_custom_payload_converter (ignored) 15 bytes [optional] [built] [code generated]
+2|orchestrator  |   __temporal_custom_failure_converter (ignored) 15 bytes [optional] [built] [code generated]
+2|orchestrator  | webpack 5.105.4 compiled successfully in 909 ms { sdkComponent: 'worker', taskQueue: 'moltbook' }
+2|orchestrator  | 2026-04-05T14:28:01.006Z [INFO] Workflow bundle created { sdkComponent: 'worker', taskQueue: 'moltbook', size: '2.86MB' }
+2|orchestrator  | 2026-04-05T14:28:02.481Z [INFO] asset workflow-bundle-cbb4a0230911e1a59acd.js 2.86 MiB [emitted] [immutable] (name: main)
+2|orchestrator  | runtime modules 1010 bytes 5 modules
+2|orchestrator  | modules by path ../../node_modules/ 964 KiB
+2|orchestrator  |   modules by path ../../node_modules/@temporalio/ 332 KiB 55 modules
+2|orchestrator  |   modules by path ../../node_modules/nexus-rpc/lib/ 25.6 KiB 17 modules
+2|orchestrator  |   + 4 modules
+2|orchestrator  | modules by path ./dist/ 18.9 KiB
+2|orchestrator  |   modules by path ./dist/apps/orchestrator/src/workflows/ 17.7 KiB 9 modules
+2|orchestrator  |   modules by path ./dist/libraries/nestjs-libraries/src/ 803 bytes 2 modules
+2|orchestrator  |   modules by path ./dist/apps/orchestrator/src/signals/*.js 452 bytes 2 modules
+2|orchestrator  | optional modules 30 bytes [optional]
+2|orchestrator  |   __temporal_custom_payload_converter (ignored) 15 bytes [optional] [built] [code generated]
+2|orchestrator  |   __temporal_custom_failure_converter (ignored) 15 bytes [optional] [built] [code generated]
+2|orchestrator  | webpack 5.105.4 compiled successfully in 893 ms { sdkComponent: 'worker', taskQueue: 'whop' }
+2|orchestrator  | 2026-04-05T14:28:02.505Z [INFO] Workflow bundle created { sdkComponent: 'worker', taskQueue: 'whop', size: '2.86MB' }
+2|orchestrator  | 2026-04-05T14:28:04.433Z [INFO] asset workflow-bundle-cbb4a0230911e1a59acd.js 2.86 MiB [emitted] [immutable] (name: main)
+2|orchestrator  | runtime modules 1010 bytes 5 modules
+2|orchestrator  | modules by path ../../node_modules/ 964 KiB
+2|orchestrator  |   modules by path ../../node_modules/@temporalio/ 332 KiB 55 modules
+2|orchestrator  |   modules by path ../../node_modules/nexus-rpc/lib/ 25.6 KiB 17 modules
+2|orchestrator  |   + 4 modules
+2|orchestrator  | modules by path ./dist/ 18.9 KiB
+2|orchestrator  |   modules by path ./dist/apps/orchestrator/src/workflows/ 17.7 KiB 9 modules
+2|orchestrator  |   modules by path ./dist/libraries/nestjs-libraries/src/ 803 bytes 2 modules
+2|orchestrator  |   modules by path ./dist/apps/orchestrator/src/signals/*.js 452 bytes 2 modules
+2|orchestrator  | optional modules 30 bytes [optional]
+2|orchestrator  |   __temporal_custom_payload_converter (ignored) 15 bytes [optional] [built] [code generated]
+2|orchestrator  |   __temporal_custom_failure_converter (ignored) 15 bytes [optional] [built] [code generated]
+2|orchestrator  | webpack 5.105.4 compiled successfully in 1266 ms { sdkComponent: 'worker', taskQueue: 'skool' }
+2|orchestrator  | 2026-04-05T14:28:04.453Z [INFO] Workflow bundle created { sdkComponent: 'worker', taskQueue: 'skool', size: '2.86MB' }
+2|orchestrator  | 2026-04-05T14:28:06.104Z [INFO] asset workflow-bundle-cbb4a0230911e1a59acd.js 2.86 MiB [emitted] [immutable] (name: main)
+2|orchestrator  | runtime modules 1010 bytes 5 modules
+2|orchestrator  | modules by path ../../node_modules/ 964 KiB
+2|orchestrator  |   modules by path ../../node_modules/@temporalio/ 332 KiB 55 modules
+2|orchestrator  |   modules by path ../../node_modules/nexus-rpc/lib/ 25.6 KiB 17 modules
+2|orchestrator  |   + 4 modules
+2|orchestrator  | modules by path ./dist/ 18.9 KiB
+2|orchestrator  |   modules by path ./dist/apps/orchestrator/src/workflows/ 17.7 KiB 9 modules
+2|orchestrator  |   modules by path ./dist/libraries/nestjs-libraries/src/ 803 bytes 2 modules
+2|orchestrator  |   modules by path ./dist/apps/orchestrator/src/signals/*.js 452 bytes 2 modules
+2|orchestrator  | optional modules 30 bytes [optional]
+2|orchestrator  |   __temporal_custom_payload_converter (ignored) 15 bytes [optional] [built] [code generated]
+2|orchestrator  |   __temporal_custom_failure_converter (ignored) 15 bytes [optional] [built] [code generated]
+2|orchestrator  | webpack 5.105.4 compiled successfully in 925 ms { sdkComponent: 'worker', taskQueue: 'mewe' }
+2|orchestrator  | 2026-04-05T14:28:06.169Z [INFO] Workflow bundle created { sdkComponent: 'worker', taskQueue: 'mewe', size: '2.86MB' }
+2|orchestrator  | 2026-04-05T14:28:06.649Z [INFO] Worker state changed { sdkComponent: 'worker', taskQueue: 'main', state: 'RUNNING' }
+2|orchestrator  | 2026-04-05T14:28:06.657Z [INFO] No Nexus services registered, not polling for Nexus tasks { sdkComponent: 'worker', taskQueue: 'main' }
+2|orchestrator  | 2026-04-05T14:28:06.662Z [INFO] Worker state changed { sdkComponent: 'worker', taskQueue: 'x', state: 'RUNNING' }
+2|orchestrator  | 2026-04-05T14:28:06.662Z [INFO] No Nexus services registered, not polling for Nexus tasks { sdkComponent: 'worker', taskQueue: 'x' }
+2|orchestrator  | 2026-04-05T14:28:06.664Z [INFO] Worker state changed { sdkComponent: 'worker', taskQueue: 'linkedin', state: 'RUNNING' }
+2|orchestrator  | 2026-04-05T14:28:06.665Z [INFO] No Nexus services registered, not polling for Nexus tasks { sdkComponent: 'worker', taskQueue: 'linkedin' }
+2|orchestrator  | 2026-04-05T14:28:06.668Z [INFO] Worker state changed { sdkComponent: 'worker', taskQueue: 'reddit', state: 'RUNNING' }
+2|orchestrator  | 2026-04-05T14:28:06.669Z [INFO] No Nexus services registered, not polling for Nexus tasks { sdkComponent: 'worker', taskQueue: 'reddit' }
+2|orchestrator  | 2026-04-05T14:28:06.670Z [INFO] Worker state changed { sdkComponent: 'worker', taskQueue: 'instagram', state: 'RUNNING' }
+2|orchestrator  | 2026-04-05T14:28:06.670Z [INFO] No Nexus services registered, not polling for Nexus tasks { sdkComponent: 'worker', taskQueue: 'instagram' }
+2|orchestrator  | 2026-04-05T14:28:06.672Z [INFO] Worker state changed { sdkComponent: 'worker', taskQueue: 'facebook', state: 'RUNNING' }
+2|orchestrator  | 2026-04-05T14:28:06.673Z [INFO] No Nexus services registered, not polling for Nexus tasks { sdkComponent: 'worker', taskQueue: 'facebook' }
+2|orchestrator  | 2026-04-05T14:28:06.674Z [INFO] Worker state changed { sdkComponent: 'worker', taskQueue: 'threads', state: 'RUNNING' }
+2|orchestrator  | 2026-04-05T14:28:06.674Z [INFO] No Nexus services registered, not polling for Nexus tasks { sdkComponent: 'worker', taskQueue: 'threads' }
+2|orchestrator  | 2026-04-05T14:28:06.678Z [INFO] Worker state changed { sdkComponent: 'worker', taskQueue: 'youtube', state: 'RUNNING' }
+2|orchestrator  | 2026-04-05T14:28:06.681Z [INFO] No Nexus services registered, not polling for Nexus tasks { sdkComponent: 'worker', taskQueue: 'youtube' }
+2|orchestrator  | 2026-04-05T14:28:06.684Z [INFO] Worker state changed { sdkComponent: 'worker', taskQueue: 'gmb', state: 'RUNNING' }
+2|orchestrator  | 2026-04-05T14:28:06.685Z [INFO] No Nexus services registered, not polling for Nexus tasks { sdkComponent: 'worker', taskQueue: 'gmb' }
+2|orchestrator  | 2026-04-05T14:28:06.687Z [INFO] Worker state changed { sdkComponent: 'worker', taskQueue: 'tiktok', state: 'RUNNING' }
+2|orchestrator  | 2026-04-05T14:28:06.688Z [INFO] No Nexus services registered, not polling for Nexus tasks { sdkComponent: 'worker', taskQueue: 'tiktok' }
+2|orchestrator  | 2026-04-05T14:28:06.689Z [INFO] Worker state changed { sdkComponent: 'worker', taskQueue: 'pinterest', state: 'RUNNING' }
+2|orchestrator  | 2026-04-05T14:28:06.689Z [INFO] No Nexus services registered, not polling for Nexus tasks { sdkComponent: 'worker', taskQueue: 'pinterest' }
+2|orchestrator  | 2026-04-05T14:28:06.690Z [INFO] Worker state changed { sdkComponent: 'worker', taskQueue: 'dribbble', state: 'RUNNING' }
+2|orchestrator  | 2026-04-05T14:28:06.690Z [INFO] No Nexus services registered, not polling for Nexus tasks { sdkComponent: 'worker', taskQueue: 'dribbble' }
+2|orchestrator  | 2026-04-05T14:28:06.691Z [INFO] Worker state changed { sdkComponent: 'worker', taskQueue: 'discord', state: 'RUNNING' }
+2|orchestrator  | 2026-04-05T14:28:06.693Z [INFO] No Nexus services registered, not polling for Nexus tasks { sdkComponent: 'worker', taskQueue: 'discord' }
+2|orchestrator  | 2026-04-05T14:28:06.695Z [INFO] Worker state changed { sdkComponent: 'worker', taskQueue: 'slack', state: 'RUNNING' }
+2|orchestrator  | 2026-04-05T14:28:06.695Z [INFO] No Nexus services registered, not polling for Nexus tasks { sdkComponent: 'worker', taskQueue: 'slack' }
+2|orchestrator  | 2026-04-05T14:28:06.698Z [INFO] Worker state changed { sdkComponent: 'worker', taskQueue: 'kick', state: 'RUNNING' }
+2|orchestrator  | 2026-04-05T14:28:06.699Z [INFO] No Nexus services registered, not polling for Nexus tasks { sdkComponent: 'worker', taskQueue: 'kick' }
+2|orchestrator  | 2026-04-05T14:28:06.700Z [INFO] Worker state changed { sdkComponent: 'worker', taskQueue: 'twitch', state: 'RUNNING' }
+2|orchestrator  | 2026-04-05T14:28:06.700Z [INFO] No Nexus services registered, not polling for Nexus tasks { sdkComponent: 'worker', taskQueue: 'twitch' }
+2|orchestrator  | 2026-04-05T14:28:06.701Z [INFO] Worker state changed { sdkComponent: 'worker', taskQueue: 'mastodon', state: 'RUNNING' }
+2|orchestrator  | 2026-04-05T14:28:06.702Z [INFO] No Nexus services registered, not polling for Nexus tasks { sdkComponent: 'worker', taskQueue: 'mastodon' }
+2|orchestrator  | 2026-04-05T14:28:06.702Z [INFO] Worker state changed { sdkComponent: 'worker', taskQueue: 'bluesky', state: 'RUNNING' }
+2|orchestrator  | 2026-04-05T14:28:06.703Z [INFO] No Nexus services registered, not polling for Nexus tasks { sdkComponent: 'worker', taskQueue: 'bluesky' }
+2|orchestrator  | 2026-04-05T14:28:06.704Z [INFO] Worker state changed { sdkComponent: 'worker', taskQueue: 'lemmy', state: 'RUNNING' }
+2|orchestrator  | 2026-04-05T14:28:06.704Z [INFO] No Nexus services registered, not polling for Nexus tasks { sdkComponent: 'worker', taskQueue: 'lemmy' }
+2|orchestrator  | 2026-04-05T14:28:06.705Z [INFO] Worker state changed { sdkComponent: 'worker', taskQueue: 'wrapcast', state: 'RUNNING' }
+2|orchestrator  | 2026-04-05T14:28:06.706Z [INFO] No Nexus services registered, not polling for Nexus tasks { sdkComponent: 'worker', taskQueue: 'wrapcast' }
+2|orchestrator  | 2026-04-05T14:28:06.706Z [INFO] Worker state changed { sdkComponent: 'worker', taskQueue: 'telegram', state: 'RUNNING' }
+2|orchestrator  | 2026-04-05T14:28:06.707Z [INFO] No Nexus services registered, not polling for Nexus tasks { sdkComponent: 'worker', taskQueue: 'telegram' }
+2|orchestrator  | 2026-04-05T14:28:06.708Z [INFO] Worker state changed { sdkComponent: 'worker', taskQueue: 'nostr', state: 'RUNNING' }
+2|orchestrator  | 2026-04-05T14:28:06.708Z [INFO] No Nexus services registered, not polling for Nexus tasks { sdkComponent: 'worker', taskQueue: 'nostr' }
+2|orchestrator  | 2026-04-05T14:28:06.709Z [INFO] Worker state changed { sdkComponent: 'worker', taskQueue: 'vk', state: 'RUNNING' }
+2|orchestrator  | 2026-04-05T14:28:06.710Z [INFO] No Nexus services registered, not polling for Nexus tasks { sdkComponent: 'worker', taskQueue: 'vk' }
+2|orchestrator  | 2026-04-05T14:28:06.718Z [INFO] Worker state changed { sdkComponent: 'worker', taskQueue: 'medium', state: 'RUNNING' }
+2|orchestrator  | 2026-04-05T14:28:06.720Z [INFO] No Nexus services registered, not polling for Nexus tasks { sdkComponent: 'worker', taskQueue: 'medium' }
+2|orchestrator  | 2026-04-05T14:28:06.721Z [INFO] Worker state changed { sdkComponent: 'worker', taskQueue: 'devto', state: 'RUNNING' }
+2|orchestrator  | 2026-04-05T14:28:06.722Z [INFO] No Nexus services registered, not polling for Nexus tasks { sdkComponent: 'worker', taskQueue: 'devto' }
+2|orchestrator  | 2026-04-05T14:28:06.723Z [INFO] Worker state changed { sdkComponent: 'worker', taskQueue: 'hashnode', state: 'RUNNING' }
+2|orchestrator  | 2026-04-05T14:28:06.724Z [INFO] No Nexus services registered, not polling for Nexus tasks { sdkComponent: 'worker', taskQueue: 'hashnode' }
+2|orchestrator  | 2026-04-05T14:28:06.726Z [INFO] Worker state changed { sdkComponent: 'worker', taskQueue: 'wordpress', state: 'RUNNING' }
+2|orchestrator  | 2026-04-05T14:28:06.726Z [INFO] No Nexus services registered, not polling for Nexus tasks { sdkComponent: 'worker', taskQueue: 'wordpress' }
+2|orchestrator  | 2026-04-05T14:28:06.732Z [INFO] Worker state changed { sdkComponent: 'worker', taskQueue: 'listmonk', state: 'RUNNING' }
+2|orchestrator  | 2026-04-05T14:28:06.733Z [INFO] No Nexus services registered, not polling for Nexus tasks { sdkComponent: 'worker', taskQueue: 'listmonk' }
+2|orchestrator  | 2026-04-05T14:28:06.737Z [INFO] Worker state changed { sdkComponent: 'worker', taskQueue: 'moltbook', state: 'RUNNING' }
+2|orchestrator  | 2026-04-05T14:28:06.737Z [INFO] No Nexus services registered, not polling for Nexus tasks { sdkComponent: 'worker', taskQueue: 'moltbook' }
+2|orchestrator  | 2026-04-05T14:28:06.738Z [INFO] Worker state changed { sdkComponent: 'worker', taskQueue: 'whop', state: 'RUNNING' }
+2|orchestrator  | 2026-04-05T14:28:06.739Z [INFO] No Nexus services registered, not polling for Nexus tasks { sdkComponent: 'worker', taskQueue: 'whop' }
+2|orchestrator  | 2026-04-05T14:28:06.740Z [INFO] Worker state changed { sdkComponent: 'worker', taskQueue: 'skool', state: 'RUNNING' }
+2|orchestrator  | 2026-04-05T14:28:06.740Z [INFO] No Nexus services registered, not polling for Nexus tasks { sdkComponent: 'worker', taskQueue: 'skool' }
+2|orchestrator  | 2026-04-05T14:28:06.742Z [INFO] Worker state changed { sdkComponent: 'worker', taskQueue: 'mewe', state: 'RUNNING' }
+2|orchestrator  | 2026-04-05T14:28:06.744Z [INFO] No Nexus services registered, not polling for Nexus tasks { sdkComponent: 'worker', taskQueue: 'mewe' }
